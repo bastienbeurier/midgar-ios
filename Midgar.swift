@@ -123,17 +123,19 @@ private class EventUploadService: NSObject {
 private struct Event {
     
     let type: String
+    let source: String
     let screen: String
     let timestamp: Int
     
     init(screen: String) {
         type = "impression"
+        source = "ios"
         self.screen = screen
         timestamp = Date().timestamp
     }
     
     func toDict() -> [String: Any] {
-        return ["type": type, "screen": screen, "timestamp": timestamp]
+        return ["type": type, "screen": screen, "timestamp": timestamp, "source": source]
     }
     
 }
